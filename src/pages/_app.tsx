@@ -12,7 +12,9 @@ const MyApp: AppType = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <main className="container mx-auto flex flex-col items-center justify-center h-screen p-4">
+        <Component {...pageProps} />
+      </main>
     </SessionProvider>
   );
 };
