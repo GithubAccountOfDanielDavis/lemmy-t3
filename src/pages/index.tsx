@@ -9,7 +9,7 @@ type TechnologyCardProps = {
 };
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  const hello = trpc.proxy.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>

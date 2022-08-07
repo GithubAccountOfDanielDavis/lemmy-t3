@@ -50,6 +50,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   communities   Community[]
+  posts         Post[]
+  Comment       Comment[]
 }
 
 model VerificationToken {
@@ -67,4 +69,19 @@ model Community {
   description String
   creatorId   String
   creator     User   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+}
+
+model Post {
+  id        String @id @default(cuid())
+  title     String
+  body      String
+  creatorId String
+  creator   User   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id        String @id @default(cuid())
+  body      String
+  creatorId String
+  creator   User   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
 }
